@@ -1,5 +1,5 @@
 type PairProps = {
-    children: string,
+    children: string | string[],
     title: string,
 }
 
