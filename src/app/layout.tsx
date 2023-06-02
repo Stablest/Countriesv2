@@ -1,3 +1,4 @@
+import { Template } from '@/components/Template'
 import './globals.css'
 import { Nunito_Sans } from 'next/font/google'
 
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} text-black bg-light-mode-background overflow-scroll`}>
-        {children}
+        <Template>
+          {children}
+        </Template>
       </body>
     </html>
   )
