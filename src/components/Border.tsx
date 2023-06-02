@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 type BorderProps = {
-    children: ReactNode
+    children: string | string[]
 }
 
 const Border = ({ children }: BorderProps) => {
