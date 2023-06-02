@@ -1,5 +1,3 @@
-'use client'
-
 import { ReactNode } from "react"
 import { Pair } from "./Pair"
 
@@ -9,14 +7,13 @@ type CountryProps = {
     name: string,
     population: number,
     region: string,
-    capital: string,
+    capital: string[],
 }
 
 const Country = ({ flags, name, population, region, capital }: CountryProps) => {
-
     return (
         <>
-            <a href="/a" className="bg-white w-10/12 h-80 mx-auto my-10 rounded-lg drop-shadow-sm overflow-hidden">
+            <a href={`/${name}`} className="bg-white w-64 h-80 mx-auto my-10 rounded-lg drop-shadow-sm overflow-hidden">
                 <div className=" h-3/6 flex justify-center items-center">
                     <img src={flags[1]} alt={`Flag of ${name}`} className="h-full w-full" />
                 </div>
@@ -25,7 +22,7 @@ const Country = ({ flags, name, population, region, capital }: CountryProps) => 
                     <div className="flex flex-col justify-center mt-3 gap-y-1">
                         <Pair title="Population:">{population.toString()}</Pair>
                         <Pair title="Region:">{region}</Pair>
-                        <Pair title="Capital:">{capital}</Pair>
+                        <Pair title="Capital:">{capital[0]}</Pair>
                     </div>
                 </div>
             </a>
