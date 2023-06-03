@@ -25,7 +25,7 @@ const Header = () => {
     }, [])
 
     return (
-        <header className={` dark:bg-dark-blue 'bg-white' flex justify-between px-4 py-10 drop-shadow-md`}>
+        <header className={` dark:bg-dark-blue 'bg-white' flex justify-between px-4 sm:px-10 xl:px-20 py-10 drop-shadow-md`}>
             <span className="text-lg font-bold">Where in the world?</span>
             <button className="flex justify-between items-center gap-x-2" onClick={handleClick}>
                 <img src="./moon.svg" alt="moon" className='w-6 h-6 brightness-[0] saturate-[0%] invert-[100%] hue-rotate-[0deg] contrast-[180%]' />
