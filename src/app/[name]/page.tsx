@@ -14,7 +14,7 @@ type PageProps = {
 }
 
 const Page = ({ params }: PageProps) => {
-    const name = params.name.replace('%20', ' ')
+    const name = params.name.replaceAll('%20', ' ')
     const allCountries = useRef<CountryType[]>([])
     const [country, setCountry] = useState<CountryType | null>(null)
 
