@@ -1,26 +1,35 @@
 import { Template } from '@/components/Template'
 import './globals.css'
-import { Nunito_Sans } from 'next/font/google'
-
-const font = Nunito_Sans({ subsets: ['latin'] })
+import { URL } from '@/utils/const/enums/url'
+import { CountryType } from '@/utils/interfaces/CountryTypes'
 
 export const metadata = {
   title: 'Countries',
   description: 'All about countries',
 }
 
-export default function RootLayout({
+// async function getData() {
+//   try {
+//     const res = await fetch(URL.ALL)
+//     const data: CountryType[] = await res.json()
+//     return data
+//   } catch (e) {
+//     console.error(e)
+//   }
+// }
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  // const data = await getData()
+
   return (
     <html lang="en">
-      <body className={`${font.className} text-black bg-light-mode-background overflow-scroll`}>
-        <Template>
-          {children}
-        </Template>
-      </body>
+      <Template>
+        {children}
+      </Template>
     </html>
   )
 }
