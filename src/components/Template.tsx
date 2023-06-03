@@ -10,7 +10,7 @@ type TemplateProps = {
 
 const Template = ({ children }: TemplateProps) => {
     return (
-        <body className={`${font.className} min-h-screen dark:text-white text-black dark:bg-dark-mode-background bg-light-mode-background`}>
+        <body className={`${font.className} min-h-screen dark:text-white text-black dark:bg-dark-mode-background bg-light-mode-background overflow-x-auto`}>
             <Header></Header>
             <div className="dark:bg-dark-mode-background bg-light-mode-background">
                 {children}
