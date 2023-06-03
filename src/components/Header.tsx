@@ -1,25 +1,34 @@
 'use client'
 
+import { useLocalStorage } from "@/utils/hooks/useLocalStorage"
 import { useEffect } from "react"
 
 const Header = () => {
-    const checkTheme = () => {
-        if (!window)
-            return
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches)
-            console.log('DARK THEME')
+    const { value: darkMode, updateLocalStorage: updateDarkMode } = useLocalStorage<boolean>('dark-theme')
+
+    const handleClick = () => {
+        const checkDark = darkMode ? false : true
+        updateDarkMode(checkDark)
+        document.documentElement.classList.toggle('dark')
     }
 
     useEffect(() => {
-        checkTheme()
+        if (typeof darkMode === 'boolean') {
+            if (darkMode)
+                return document.documentElement.classList.add('dark')
+            return document.documentElement.classList.remove('dark')
+        }
+        if (window?.matchMedia('(prefers-color-scheme:dark)').matches) {
+            document.documentElement.classList.add('dark')
+            updateDarkMode(darkMode ? false : true)
+        }
     }, [])
 
-
     return (
-        <header className='bg-white flex justify-between px-4 py-10 drop-shadow-sm'>
+        <header className={` dark:bg-dark-blue 'bg-white' flex justify-between px-4 py-10 drop-shadow-md`}>
             <span className="text-lg font-bold">Where in the world?</span>
-            <button className="flex justify-between items-center gap-x-2">
-                <img src="./moon.svg" alt="moon" className='w-6 h-6' />
+            <button className="flex justify-between items-center gap-x-2" onClick={handleClick}>
+                <img src="./moon.svg" alt="moon" className='w-6 h-6 brightness-[0] saturate-[0%] invert-[100%] hue-rotate-[0deg] contrast-[180%]' />
                 <span className="text-base">Dark Mode</span>
             </button>
         </header>
