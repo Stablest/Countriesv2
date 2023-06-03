@@ -60,7 +60,7 @@ export default function Home() {
     <main className='px-4 sm:px-10 xl:px-20 overflow-auto'>
       <div className='xl:flex xl:justify-between xl:items-center'>
         <div className='flex items-center px-8 gap-x-4 dark:bg-dark-blue bg-white drop-shadow-md h-12 max-w-md rounded-lg my-8 xl:my-16'>
-          <img src="./magnifier.svg" alt="magnifier" className='w-5 h-5 brightness-[0] saturate-[0%] invert-[100%] hue-rotate-[0deg] contrast-[180%]' />
+          <img src="./magnifier.svg" alt="magnifier" className='w-5 h-5 dark:brightness-[0] dark:saturate-[0%] dark:invert-[100%] dark:hue-rotate-[0deg] dark:contrast-[180%]' />
           <input type="text" placeholder='Search for a country...' name="Country" id=""
             className='dark:bg-dark-blue bg-white dark:placeholder:text-white placeholder-light-mode-input'
             value={inputText} onChange={(e) => handleOnChangeInput(e.target.value)} />

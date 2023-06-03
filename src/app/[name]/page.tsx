@@ -45,7 +45,7 @@ const Page = ({ params }: PageProps) => {
             {country ?
                 <>
                     <Link href="/" className="flex justify-center items-center gap-x-4 dark:bg-dark-blue bg-white w-32 h-12 rounded-sm my-8 drop-shadow-md">
-                        <img src="./arrow-left.svg" alt="Left arrow" className="w-6 brightness-[0] saturate-[0%] invert-[100%] hue-rotate-[0deg] contrast-[180%]" />
+                        <img src="./arrow-left.svg" alt="Left arrow" className="w-6 dark:brightness-[0] dark:saturate-[0%] dark:invert-[100%] dark:hue-rotate-[0deg] dark:contrast-[180%]" />
                         <div>Back</div>
                     </Link>
                     <div className="xl:flex xl:justify-center xl:items-center xl:gap-x-16">
