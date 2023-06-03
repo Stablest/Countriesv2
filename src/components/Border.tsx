@@ -1,12 +1,25 @@
-import { ReactNode } from "react"
+import { URL } from "@/utils/const/enums/url"
+import { CountryType } from "@/utils/interfaces/CountryTypes"
+import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
 
 type BorderProps = {
-    children: string | string[]
+    children: string,
+    allCountries: CountryType[],
 }
 
-const Border = ({ children }: BorderProps) => {
+const Border = ({ children, allCountries }: BorderProps) => {
+    const [routeName, setRouteName] = useState<string>('')
+
+    useEffect(() => {
+        allCountries.forEach((element: CountryType, index: number) => {
+            if (element.cca2 === children || element.cca3 === children || element.ccn3 === children || element.cioc === children)
+                setRouteName(element.name.common)
+        })
+    }, [])
+
     return (
-        <div className="bg-white h-8 px-6 flex items-center rounded-sm drop-shadow-md">{children}</div>
+        <Link href={`/${routeName}`} className="dark:bg-dark-blue bg-white h-8 px-6 flex items-center rounded-sm drop-shadow-md">{children}</Link>
     )
 }
 
