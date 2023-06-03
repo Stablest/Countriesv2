@@ -62,7 +62,7 @@ export default function Home() {
         <div className='flex items-center px-8 gap-x-4 dark:bg-dark-blue bg-white drop-shadow-md h-12 max-w-md rounded-lg my-8 xl:my-16'>
           <img src="./magnifier.svg" alt="magnifier" className='w-5 h-5 dark:brightness-[0] dark:saturate-[0%] dark:invert-[100%] dark:hue-rotate-[0deg] dark:contrast-[180%]' />
           <input type="text" placeholder='Search for a country...' name="Country" id=""
-            className='dark:bg-dark-blue bg-white dark:placeholder:text-white placeholder-light-mode-input'
+            className='dark:bg-dark-blue bg-white dark:placeholder:text-white placeholder-light-mode-input w-full'
             value={inputText} onChange={(e) => handleOnChangeInput(e.target.value)} />
         </div>
         <select name="region" id="" className='dark:bg-dark-blue px-4 w-48 h-12 text-center drop-shadow-md rounded-lg' onChange={(e) => handleOnChangeSelect(e.currentTarget.value)}>
