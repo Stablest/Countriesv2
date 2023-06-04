@@ -1,27 +1,25 @@
 'use client'
 
 import { Country } from '@/components/Country'
-import { Template } from '@/components/Template'
-import { REGION } from '@/utils/const/enums/region'
-import { URL } from '@/utils/const/enums/url'
+import { REGION } from '@/utils/interfaces/Region'
+import { CountriesContext } from '@/utils/context/countriesContext'
 import { CountryType } from '@/utils/interfaces/CountryTypes'
-import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 export default function Home() {
-  const allCountries = useRef<CountryType[]>([])
+  const allCountries = useContext(CountriesContext)
   const [countries, setCountries] = useState<CountryType[]>([])
   const [region, setRegion] = useState<string>(REGION.ALL)
   const [inputText, setInputText] = useState<string>('')
 
-  const handleOnChangeSelect = (newRegion: string) => {
+  const handleUpdateRegion = (newRegion: string) => {
     setInputText('')
     if (newRegion.length === 0) {
-      setCountries(allCountries.current)
+      setCountries(allCountries.countries)
       return setRegion(REGION.ALL)
     }
     const newCountries: CountryType[] = []
-    allCountries.current.forEach((element: CountryType) => {
+    allCountries.countries.forEach((element: CountryType) => {
       if (element.region === newRegion)
         newCountries.push(element)
     })
@@ -31,11 +29,11 @@ export default function Home() {
 
   const handleOnChangeInput = (text: string | null) => {
     if (!text) {
-      handleOnChangeSelect(region)
+      handleUpdateRegion(region)
       return setInputText('')
     }
     const newCountries: CountryType[] = []
-    allCountries.current.forEach((element: CountryType) => {
+    allCountries.countries.forEach((element: CountryType) => {
       if (element.name.common.toLowerCase().startsWith(text.toLowerCase()))
         newCountries.push(element)
     })
@@ -44,17 +42,8 @@ export default function Home() {
   }
 
   useEffect(() => {
-    try {
-      fetch(URL.ALL).then(res => {
-        return res.json()
-      }).then(data => {
-        setCountries([...data])
-        allCountries.current = [...data]
-      })
-    } catch (e) {
-      console.error(e)
-    }
-  }, [])
+    setCountries(allCountries.countries)
+  }, [allCountries])
 
   return (
     <main className='px-4 sm:px-10 xl:px-20 overflow-auto'>
@@ -65,7 +54,7 @@ export default function Home() {
             className='dark:bg-dark-blue bg-white dark:placeholder:text-white placeholder-light-mode-input w-full'
             value={inputText} onChange={(e) => handleOnChangeInput(e.target.value)} />
         </div>
-        <select name="region" id="" className='dark:bg-dark-blue px-4 w-48 h-12 text-center drop-shadow-md rounded-lg' onChange={(e) => handleOnChangeSelect(e.currentTarget.value)}>
+        <select name="region" id="" className='dark:bg-dark-blue px-4 w-48 h-12 text-center drop-shadow-md rounded-lg' onChange={(e) => handleUpdateRegion(e.currentTarget.value)}>
           <option value=''>Filter By Region</option>
           <option value={REGION.AFRICA} >Africa</option>
           <option value={REGION.AMERICAS}>America</option>
