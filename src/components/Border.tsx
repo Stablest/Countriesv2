@@ -1,7 +1,6 @@
-import { URL } from "@/utils/const/enums/url"
 import { CountryType } from "@/utils/interfaces/CountryTypes"
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 
 type BorderProps = {
     children: string,
