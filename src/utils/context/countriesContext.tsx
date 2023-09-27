@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, createContext, useEffect, useRef, useState } from "react";
-import { URL } from "../interfaces/Url";
+import { URL } from "../interfaces/URL";
 import { CountryType } from "../interfaces/CountryTypes";
 
 type CountriesContextProps = {
