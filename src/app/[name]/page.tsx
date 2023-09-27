@@ -13,7 +13,7 @@ type PageProps = {
 }
 
 const Page = ({ params }: PageProps) => {
-    const name = params.name.replaceAll('%20', ' ')
+    const name = decodeURI(params.name)
     const allCountries = useContext(CountriesContext)
     const [country, setCountry] = useState<CountryType | null>(null)
 
