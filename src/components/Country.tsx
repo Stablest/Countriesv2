@@ -14,7 +14,7 @@ type CountryProps = {
 const Country = ({ flags, name, population, region, capital }: CountryProps) => {
     return (
         <>
-            <Link href={`/${name}`} className="dark:bg-dark-blue bg-white w-64 h-80 my-10 rounded-lg drop-shadow-md overflow-hidden">
+            <Link href={`/${encodeURI(name)}`} className="dark:bg-dark-blue bg-white w-64 h-80 my-10 rounded-lg drop-shadow-md overflow-hidden">
                 <div className="h-3/6 flex justify-center items-center">
                     <img src={flags[1]} alt={`Flag of ${name}`} className="h-full w-full" />
                 </div>
