@@ -4,7 +4,7 @@ import { Border } from "@/components/Border"
 import { Pair } from "@/components/Pair"
 import { CountriesContext } from "@/utils/context/countriesContext"
 import { acessObjectKey } from "@/utils/functions/acessObjectKey"
-import { CountryType, NativeName } from "@/utils/interfaces/CountryTypes"
+import { CountryType } from "@/utils/interfaces/CountryTypes"
 import Link from "next/link"
 import { useContext, useEffect, useState } from "react"
 
