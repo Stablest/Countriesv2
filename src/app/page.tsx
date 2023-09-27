@@ -14,7 +14,7 @@ export default function Home() {
 
   const handleUpdateRegion = (newRegion: string) => {
     setInputText('')
-    if (newRegion.length === 0) {
+    if (newRegion === REGION.ALL) {
       setCountries(allCountries.countries)
       return setRegion(REGION.ALL)
     }
