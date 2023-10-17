@@ -17,4 +17,6 @@
    
  ##
   Feito por [Stablest](https://github.com/Stablest)
+  
+  <sup>Design [Frontend Mentor](https://www.frontendmentor.io/)</sup>
 </div>
