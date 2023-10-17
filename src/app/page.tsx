@@ -55,7 +55,7 @@ export default function Home() {
             value={inputText} onChange={(e) => handleOnChangeInput(e.target.value)} />
         </div>
         <select name="region" className='dark:bg-dark-blue px-4 w-48 h-12 text-center drop-shadow-md rounded-lg' onChange={(e) => handleUpdateRegion(e.currentTarget.value)}>
-          <option value=''>Filter By Region</option>
+          <option value={REGION.ALL}>Filter By Region</option>
           <option value={REGION.AFRICA} >Africa</option>
           <option value={REGION.AMERICAS}>America</option>
           <option value={REGION.ASIA} >Asia</option>
